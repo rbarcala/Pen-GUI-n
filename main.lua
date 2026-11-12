@@ -2,7 +2,7 @@ function initUi()
     app.registerUi({
         ["menu"] = "Pen tool",
         ["callback"] = "pen",
-        ["accelerator"] = "p"
+        ["accelerator"] = "f"
     });
     app.registerUi({
         ["menu"] = "Eraser tool",
@@ -35,9 +35,14 @@ function initUi()
         ["accelerator"] = "x"
     });
     app.registerUi({
-        ["menu"] = "Toggle dashed pen",
+        ["menu"] = "Dashed pen tool",
         ["callback"] = "pen_dashed",
         ["accelerator"] = "d"
+    });
+    app.registerUi({
+        ["menu"] = "Hand tool",
+        ["callback"] = "hand",
+        ["accelerator"] = "c"
     });
 end
 
@@ -71,13 +76,11 @@ function latex()
     app.uiAction({ ["action"] = "ACTION_TEX" })
 end
 
-local dashed = false
+function hand()
+    app.uiAction({ ["action"] = "ACTION_TOOL_HAND" })
+end
+
 function pen_dashed()
-    if dashed then 
-	pen()
-    else
-        app.uiAction({ ["action"] = "ACTION_TOOL_PEN" })
-        app.uiAction({ ["action"] = "ACTION_TOOL_LINE_STYLE_DASH" })
-    end	
-    dashed = not dashed
+    app.uiAction({ ["action"] = "ACTION_TOOL_PEN" })
+    app.uiAction({ ["action"] = "ACTION_TOOL_LINE_STYLE_DASH" })
 end
