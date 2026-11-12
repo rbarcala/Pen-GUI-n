@@ -3,6 +3,10 @@ I like to use Xournal++, but I wish there was a way to customize hotkeys for pen
 <br>
 # Installation
 ```bash
+./install.sh
+```
+Or manually:
+```bash
 cd ~/.config/xournalpp/plugins/
 git clone "https://github.com/Mr-FuzzyPenguin/Pen-GUI-n.git"
 ```
